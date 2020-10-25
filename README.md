@@ -12,7 +12,10 @@ En este desarrollo se genera una sala médica online, en la cual tanto profesion
 
 ***
 
-Para iniciar el proyecto basta con correr el comando (Toma el puerto 8100).
+Para iniciar el proyecto basta con correr el comando (Toma el puerto 4200).
 
 > ng serve
 
+***
+
+**Autor**: Matías Paverini
