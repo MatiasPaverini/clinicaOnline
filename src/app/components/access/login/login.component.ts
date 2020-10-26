@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AuthService } from "../../services/auth/auth.service";
+import { AuthService } from "../../../services/auth/auth.service";
 
 
 @Component({
@@ -10,20 +11,24 @@ import { AuthService } from "../../services/auth/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service: AuthService) { }
+  constructor(private service: AuthService, private router:Router) { }
 
 
-  private email: string;
-  private password: string;
+  public email: string;
+  public password: string;
 
   login() {
     this.service.login(this.email, this.password);
+    this.router.navigate(['/home']);
   }
 
   logAdmin(){
     this.password = 'admin123';
     this.email = 'admin@clinicamedica.com.ar';
   }
+
+
+  
 
   ngOnInit(): void {
   }

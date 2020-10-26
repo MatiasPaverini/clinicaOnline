@@ -8,6 +8,8 @@ import { User } from "../../classes/user/user";
 export class AuthService {
 
 
+  public activeSession: boolean = false;
+
   constructor(private service: AngularFireAuth) { }
 
 

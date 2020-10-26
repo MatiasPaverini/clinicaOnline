@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { LoginComponent } from './components/access/login/login.component';
+import { RegisterComponent } from './components/access/register/register.component';
+import { TurnsComponent } from './components/turns/turns.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DoctorsListComponent } from './components/extra/lists/doctors-list/doctors-list.component';
+import { TurnsListComponent } from './components/extra/lists/turns-list/turns-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'register',
     pathMatch: 'full'
     
   },
@@ -17,6 +22,26 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path:'home',
+    component: HomeComponent
+  },
+  {
+    path:'turns',
+    component: TurnsComponent
+  },
+  {
+    path:'profile',
+    component: ProfileComponent
+  },
+  {
+    path:'turnsList',
+    component: TurnsListComponent
+  },
+  {
+    path:'doctorList',
+    component: DoctorsListComponent
   }
 ];
 

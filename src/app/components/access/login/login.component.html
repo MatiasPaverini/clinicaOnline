@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="container">
+    <div class="form">
+        <div class="form-group" style="margin-left: 10px;">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="email" class="form-control col-lg-7" placeholder="example@clinica.com.ar">
+        </div>
+
+        <div class="form-group" style="margin-left: 10px;">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control col-lg-7" name="password" [(ngModel)]="password" id="password">
+        </div>
+
+        <button type="submit" (click)="login()" class="btn btn-success col-lg-5 frm-btn">Ingresar</button>
+
+        <button type="submit" (click)="logAdmin()" class="btn btn-success col-lg-5 frm-btn">Admin</button>
+    </div>
+</div>
