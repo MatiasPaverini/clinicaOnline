@@ -1,1 +1,26 @@
-<p>profile works!</p>
+<app-header></app-header>
+
+<div class="form">
+   
+    <div class="row">
+
+       <div class="row">
+           <img src="../../../assets/usuariotransparente_2732.png" alt="">
+           <img src="../../../assets/usuariotransparente_2732.png" alt="">
+           
+       </div> 
+
+        <div class="row">
+            <h3>Nombre:</h3>
+            <h4>{{user.name}} {{user.surname}}</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <button class="btn btn-secondary" (click)="newTurn()">Pedir Turno</button>
+        <button class="btn btn-secondary" (click)="listTurns()">Ver Turnos</button>
+        <button class="btn btn-secondary">Cargar Profesional</button>
+        <button class="btn btn-secondary">Cargar Administrador</button>
+    </div>
+
+</div>

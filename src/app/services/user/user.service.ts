@@ -12,9 +12,7 @@ export class UserService {
 
 
   public create(user) {
-    return new Promise<any>((resolve, reject) => {
-      this.firestore.collection(this.collection).add(user).then(rest => { }, err => reject(err));
-    });
+    return this.firestore.collection(this.collection).add(user);
 
   }
 

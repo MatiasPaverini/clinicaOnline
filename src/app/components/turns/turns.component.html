@@ -1,1 +1,18 @@
-<p>turns works!</p>
+Turnos
+
+<div>
+    <label for="">Seleccione una especialidad</label>
+    <select [(ngModel)]="speciality">
+        <option *ngFor="let item of specialityList" [value]="item">{{item}}</option>
+    </select>
+
+    <app-doctors-list *ngIf="speciality !== undefined && speciality !== '' " [speciality] = "speciality" (getDoctor)=selectDoctor($event)></app-doctors-list>
+
+</div>
+
+<div class="row">
+    <label>Selccione una fecha y hora para ser atendido</label>
+    <input type="datetime-local" name="" id="" [(ngModel)]="date">
+
+    <button (click)="check()">Check</button>
+</div>

@@ -1,9 +1,23 @@
-CLINICA MÉDICA
+<p>
+    <a href="home">CLINICA MÉDICA</a> 
+</p>
 
-<button class="btn btn-primary">Iniciar Sesión</button>
 
-<button class="btn btn-primary">Registrarse</button>
-
-<button class="btn btn-primary">Ver Perfil</button>
+<div class="row">
     
-<!-- Mostrar botones de iniciar sesión y registro si no se loggea, si está loggeado entonces mostrar ver perfil --> 
+    <div style="left: left;">
+
+        <button class="btn btn-primary" (click)="toLogin()">Iniciar Sesión</button>
+        
+        <button class="btn btn-primary" (click)="toRegister()">Registrarse</button>
+    </div>
+
+    <div style="float: right;">
+
+        <button class="btn btn-primary" (click)="toProfile()">Ver Perfil</button>
+        
+        <button class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+    </div>
+</div>
+    
+<!-- Mostrar botones de iniciar sesión y registro si no se loggea, si está loggeado entonces mostrar ver perfil y cerrar sesión --> 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { HeaderComponent } from "../extra/header/header.component";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  user;
 
   ngOnInit(): void {
+  }
+
+  newTurn(){
+    this.router.navigate(['turns']);
+  }
+
+  listTurns() {
+    this.router.navigate(['turnsList'])
   }
 
 }

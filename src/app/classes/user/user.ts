@@ -19,6 +19,28 @@ export class User {
     public set Email(email : string) {
         this.email = email;
     }
+
+    
+    public get Name() : string {
+        return this.name;
+    }
+
+    
+    public set Name(v : string) {
+        this.name = v;
+    }
+
+    
+    public get Surname() : string {
+        return this.surname;
+    }
+    
+    
+    public set Surname(v : string) {
+        this.surname = v;
+    }
+    
+    
     
     
     

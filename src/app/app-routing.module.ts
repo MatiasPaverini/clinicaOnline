@@ -11,7 +11,7 @@ import { TurnsListComponent } from './components/extra/lists/turns-list/turns-li
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'home',
     pathMatch: 'full'
     
   },
