@@ -19,12 +19,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of doctors">
+        <tr *ngFor="let item of doctors" (click)="selectDoctor($event)">
             <td>
                 {{item.name}}
             </td>
             <td>
                 {{item.surname}}
+            </td>
+            <td>
+                {{item.email}}
             </td>
             <td>
                 {{item.speciality}}
@@ -39,4 +42,4 @@
     </tbody>
 </table>
 
-<button (click)="selectDoctor($event)">Evento</button>
+<!-- <button (click)="selectDoctor($event)">Evento</button> -->

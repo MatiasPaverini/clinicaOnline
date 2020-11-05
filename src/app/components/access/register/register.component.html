@@ -10,7 +10,7 @@
             <input type="text" name="surname" id="surname" [(ngModel)]="surname" placeholder="Apellido">
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="userType == 'admin'">
             <label for="type">Tipo de Usuario</label>
             <!-- <select name="type" id="type">
                 <option >Usuario</option>

@@ -11,13 +11,26 @@ import { UserService } from "../../../services/user/user.service";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService: UserService, private loginService: AuthService, private router: Router) { }
+  constructor(private userService: UserService, private loginService: AuthService, private router: Router) {
 
-  public types = [
-    {id: 0, name: "User"},
-    {id: 1, name: "Admin"},
-    {id: 2, name: "Doctor"}
-  ]
+    try {
+      let patient = JSON.parse(sessionStorage.getItem("user"));
+      this.userType = patient.type;
+    }
+    catch(err) {
+      this.type = "patient";
+    }
+
+
+   }
+
+  // public types = [
+  //   { id: 0, name: "Patient" },
+  //   { id: 1, name: "Admin" },
+  //   { id: 2, name: "Doctor" }
+  // ]
+  public userType: string = "";
+
   public email: string = "";
   public name: string = "";
   public surname: string = "";
@@ -29,8 +42,8 @@ export class RegisterComponent implements OnInit {
   }
 
   public register() {
-    let user = { user: this.name, type: this.type, surname: this.surname, email: this.email };
-    this.loginService.register(this.email, this.password).then(res => 
+    let user = { name: this.name, type: this.type, surname: this.surname, email: this.email };
+    this.loginService.register(this.email, this.password).then(res =>
       this.createUser(user)
     ).catch(err => console.log(err));
     this.router.navigate(['/login']);
@@ -40,7 +53,7 @@ export class RegisterComponent implements OnInit {
     this.userService.create(user)
       .then(res =>
         this.checkIfRegistered(user)
-      ).catch(err => 
+      ).catch(err =>
         console.log("Error en el registro: " + err)
       );
   }

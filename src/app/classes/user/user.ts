@@ -2,13 +2,15 @@ export class User {
     private email: string;
     private name: string;
     private surname: string;
+    private type: string;
 
 
 
-    constructor (email: string, name:string, surname:string) {
+    constructor (email: string, name:string, surname:string, type?:string) {
         this.Email = email;
         this.name = name;
         this.surname = surname;
+        this.Type = type;
     }
     
     public get Email() : string {
@@ -26,6 +28,12 @@ export class User {
     }
 
     
+    public get Type() : string {
+        return this.type;
+    }
+    
+
+    
     public set Name(v : string) {
         this.name = v;
     }
@@ -39,6 +47,12 @@ export class User {
     public set Surname(v : string) {
         this.surname = v;
     }
+
+    
+    public set Type(v : string) {
+        this.type = v;
+    }
+    
     
     
     

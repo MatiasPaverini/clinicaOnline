@@ -9,4 +9,8 @@ export class Patient extends User{
         this.id = id;
     }
 
+    public toJSON() {
+        return {"type": "patient", "email": this.Email, "name": this.Name, "surname": this.Surname, "id": this.id};
+    }
+
 }

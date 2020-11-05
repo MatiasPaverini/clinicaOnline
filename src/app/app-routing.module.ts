@@ -38,10 +38,6 @@ const routes: Routes = [
   {
     path:'turnsList',
     component: TurnsListComponent
-  },
-  {
-    path:'doctorList',
-    component: DoctorsListComponent
   }
 ];
 

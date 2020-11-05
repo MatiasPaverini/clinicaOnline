@@ -37,6 +37,10 @@ export class AuthService {
 
   }
 
+  getcurrentFirebaseSession() {
+    return this.service.currentUser;
+  }
+
   getCurrent(): string {
     return sessionStorage.getItem('user');
   }

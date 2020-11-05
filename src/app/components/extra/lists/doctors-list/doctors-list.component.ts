@@ -25,7 +25,7 @@ export class DoctorsListComponent implements OnInit {
       this.doctorsAux.forEach(doctor => {
         console.log(doctor.payload.doc.data());
         let newDoc: Doctor = this.toObj(doctor.payload.doc.data());
-  
+
         if (this.speciality == newDoc.speciality) {
           this.doctors.push(newDoc);
         }
@@ -42,34 +42,47 @@ export class DoctorsListComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
     this.doctors = [];
-    this.doctorsAux.forEach(doctor => {
-      console.log(doctor.payload.doc.data());
-      let newDoc: Doctor = this.toObj(doctor.payload.doc.data());
+    if (this.doctorsAux != undefined) {
+      this.doctorsAux.forEach(doctor => {
+        console.log(doctor.payload.doc.data());
+        let newDoc: Doctor = this.toObj(doctor.payload.doc.data());
 
-      if (changes.speciality.currentValue == newDoc.speciality) {
-        this.doctors.push(newDoc);
-      }
-      else {
-        console.log("No se encuentra en esta especialidad");
-      }
-    })
+        if (changes.speciality.currentValue == newDoc.speciality) {
+          this.doctors.push(newDoc);
+        }
+        else {
+          console.log("No se encuentra en esta especialidad");
+        }
+      });
+    }
   }
 
   selectDoctor(event) {
-    let doctor = new Doctor("dsadasd", "noasfds", "dsklfhdsj", "doc-123", "Otorrinonaringología", ["012PM", "06PM"]);
-    console.log("En la lista: " + doctor.Name);
-    // this.doctor.emit(doctor);
+    let rowData = event.path[1].children;
+    console.log(rowData[0].innerText);
+    // for(let index = 0; index < event.path[1].children.length; index++) {
+    //   console.log(event.path[1].children[index].innerText);
+    // }
+    // let doctor = new Doctor("dsadasd", "noasfds", "dsklfhdsj", "doc-123", "Otorrinonaringología", ["012PM", "06PM"]);
+
+    console.log(rowData);
+    let selectedDoctor: Doctor;
+    this.doctors.forEach(doctor => {
+      console.log(rowData[2])
+      if(doctor.Email == rowData[2].innerText) {
+        selectedDoctor = doctor;
+      }
+
+    })
+    console.log("En la lista: " + selectedDoctor.id);
+    this.doctor.emit(selectedDoctor);
   }
 
   toObj(json) {
-    return new Doctor(json.email, json.name, json.surname, json.id, json.speciality, json.workingHours);
+    return new Doctor(json.email, json.name, json.surname, json.id, json.speciality, json.workingHours, json.workingDays);
   }
 
   ngOnInit(): void {
-    let doctor = new Doctor("dsadasd", "noasfds", "dsklfhdsj", "doc-123", "Otorrinonaringología", ["012PM", "06PM"]);
-    this.userService.create(doctor.toJSON()).then(res => {
-      console.log("Usuario creado!");
-    })
 
   }
 

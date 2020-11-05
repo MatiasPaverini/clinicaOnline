@@ -1,1 +1,55 @@
-<p>turns-list works!</p>
+<app-header></app-header>
+<table>
+    <thead>
+        <th>
+            Paciente
+        </th>
+        <th>
+            Doctor
+        </th>
+        <th>
+            Especialidad
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Hora
+        </th>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let turn of turnList">
+            <td>
+                {{turn.patient.name}} {{turn.patient.surname}}
+            </td>
+            <td>
+                {{turn.doctor.name}} {{turn.doctor.surname}}
+            </td>
+            <td>
+                {{turn.doctor.speciality}}
+            </td>
+            <td>
+                {{turn.date}}
+            </td>
+            <td>
+                {{turn.time}}
+            </td>
+            <td *ngIf="localUser.type == 'doctor' && turn.status == 'Sin Aceptar'">
+                <button (click)="acceptTurn($event)">
+                    Atender
+                </button> 
+            </td>
+            <td *ngIf="localUser.type == 'doctor' && turn.status == 'Sin Aceptar'">
+                <button (click)="denyTurn($event)">
+                    Rechazar
+                </button>
+            </td>
+            <td *ngIf="localUser.type == 'doctor' && turn.status == 'Aceptado'">
+                <button (click)="cancelTurn()">
+                    Cancelar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

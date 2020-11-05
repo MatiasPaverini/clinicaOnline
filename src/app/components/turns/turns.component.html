@@ -6,13 +6,20 @@ Turnos
         <option *ngFor="let item of specialityList" [value]="item">{{item}}</option>
     </select>
 
-    <app-doctors-list *ngIf="speciality !== undefined && speciality !== '' " [speciality] = "speciality" (getDoctor)=selectDoctor($event)></app-doctors-list>
+    <app-doctors-list *ngIf="speciality !== undefined && speciality !== '' " [speciality]="speciality"
+        (doctor)=getDoctor($event)></app-doctors-list>
 
 </div>
 
-<div class="row">
+<div class="row" *ngIf="doctor !== undefined">
     <label>Selccione una fecha y hora para ser atendido</label>
     <input type="datetime-local" name="" id="" [(ngModel)]="date">
 
-    <button (click)="check()">Check</button>
+    <button (click)="checkAvailability()">Check</button>
+
+
 </div>
+<p *ngIf="availability">No hay turno disponible</p>
+<button *ngIf="available" class="btn btn-info" (click)="saveTurn()">Reservar</button>
+
+<p>{{message}}</p>

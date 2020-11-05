@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/classes/user/user';
 
 import { HeaderComponent } from "../extra/header/header.component";
 @Component({
@@ -9,10 +10,12 @@ import { HeaderComponent } from "../extra/header/header.component";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    let json = JSON.parse(sessionStorage.getItem('user'));
+    this.user = new User(json.email, json.name, json.surname);
+  }
 
   user;
-
   ngOnInit(): void {
   }
 
